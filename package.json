@@ -1,0 +1,29 @@
+{
+  "name": "crossroad-resume",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Buggytheclown/crossroad-resume.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Buggytheclown/crossroad-resume/issues"
+  },
+  "homepage": "https://github.com/Buggytheclown/crossroad-resume#readme",
+  "devDependencies": {
+    "css-loader": "^0.26.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.13.0",
+    "sass-loader": "^4.0.2",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
