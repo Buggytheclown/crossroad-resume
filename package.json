@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build",
-    "build": "webpack -d && cp src/app/index.html dist/index.html && webpack-dev-server --content-base dist/ --inline --hot --history-api-fallback",
-    "build:prod": "webpack -p && cp src/index.html dist/index.html"
+    "start": "rm -rf dist && npm run build.dev",
+    "build.dev": "NODE_ENV=dev webpack -d && webpack-dev-server",
+    "build.prod": "NODE_ENV=prod webpack -p"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Buggytheclown/crossroad-resume.git"
   },
-  "author": "",
+  "author": "Artsiom Ivanov @Buggytheclown",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Buggytheclown/crossroad-resume/issues"
