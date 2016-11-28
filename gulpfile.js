@@ -1,7 +1,8 @@
 var gulp = require('gulp');
-var sass = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var rimraf = require('gulp-rimraf');
 var browserSync = require('browser-sync');
+var sourcemaps = require('gulp-sourcemaps');
 var reload = browserSync.reload;
 
 const SRC_DIR = 'src';
@@ -13,37 +14,84 @@ const DIST_APP_DIR = DIST_DIR + '/app';
 const DIST_ASSETS = DIST_DIR + '/assets';
 
 const PAGE = '/index';
+const BROWSER_OPEN_FILE = '/app/index/index.html';
 
-gulp.task('sass', function () {
-    return sass(SRC_APP_DIR + PAGE + '/index.scss')
+// TODO plumber
+
+var project_builders = [];
+var project_watchers = [];
+
+// >>>>>>>>>>> SASS >>>>>>>>>>>
+const SASS_BUILD = 'sass:build';
+gulp.task(SASS_BUILD, function () {
+    return gulp.src(SRC_APP_DIR + PAGE + '/index.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(DIST_APP_DIR + PAGE))
         .pipe(reload({stream: true}));
 });
+project_builders.push(SASS_BUILD);
 
-gulp.task('html', function () {
+const SASS_WATCH = 'sass:watch';
+gulp.task(SASS_WATCH, function () {
+    gulp.watch('src/app/index/**/*.scss', [SASS_BUILD]);
+});
+project_watchers.push(SASS_WATCH);
+
+
+// >>>>>>>>>>> HTML >>>>>>>>>>>
+const HTML_BUILD = 'html:build';
+gulp.task(HTML_BUILD, function () {
     return gulp.src(SRC_APP_DIR + PAGE + '/index.html')
         .pipe(gulp.dest(DIST_APP_DIR + PAGE))
         .pipe(reload({stream: true}));
 });
+project_builders.push(HTML_BUILD);
 
-gulp.task('copy.assets', function () {
+const HTML_WATCH = 'html:watch';
+gulp.task(HTML_WATCH, function () {
+    gulp.watch('src/app/index/index.html', [HTML_BUILD]);
+});
+project_watchers.push(HTML_WATCH);
+
+
+// >>>>>>>>>>> ASSETS >>>>>>>>>>>
+const ASSETS_COPY = 'assets:copy';
+gulp.task(ASSETS_COPY, function () {
     return gulp.src(SRC_ASSETS + '/**/*')
         .pipe(gulp.dest(DIST_ASSETS))
 });
+project_builders.push(ASSETS_COPY);
 
-gulp.task('clean', function () {
+const CLEAN = 'clean';
+gulp.task(CLEAN, function () {
     return gulp.src(DIST_DIR, {read: false})
         .pipe(rimraf());
+//    TODO del
 });
 
-// watch Sass files for changes, run the Sass preprocessor with the 'sass' task and reload
-gulp.task('serve', ['sass', 'html', 'copy.assets'], function () {
-    browserSync({
+// >>>>>>>>>>> BULD >>>>>>>>>>>
+const BUILD = 'build';
+gulp.task(BUILD, project_builders);
+
+
+// >>>>>>>>>>> WATCH >>>>>>>>>>>
+const WATCH = 'watch';
+gulp.task(WATCH, project_watchers);
+
+
+// const SERVE = 'serve';
+gulp.task('serve', [BUILD, WATCH], function () {
+    browserSync.init({
         server: {
-            baseDir: 'dist'
-        }
-    });
+            baseDir: DIST_DIR
+        },
+        ui: false,
+        startPath: BROWSER_OPEN_FILE
 
-    gulp.watch('src/app/index/*.scss', ['sass']);
-    gulp.watch('src/app/index/*.html', ['html']);
+    });
 });
+
+console.log('project_builders: ', project_builders);
+console.log('project_watchers: ', project_watchers);
