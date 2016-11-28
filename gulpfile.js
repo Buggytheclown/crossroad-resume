@@ -29,13 +29,13 @@ gulp.task(SASS_BUILD, function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(DIST_APP_DIR + PAGE))
-        .pipe(reload({stream: true}));
+
 });
 project_builders.push(SASS_BUILD);
 
 const SASS_WATCH = 'sass:watch';
 gulp.task(SASS_WATCH, function () {
-    gulp.watch('src/app/index/**/*.scss', [SASS_BUILD]);
+    gulp.watch('src/app/index/**/*.scss', [SASS_BUILD]).on('change', reload);
 });
 project_watchers.push(SASS_WATCH);
 
@@ -44,14 +44,13 @@ project_watchers.push(SASS_WATCH);
 const HTML_BUILD = 'html:build';
 gulp.task(HTML_BUILD, function () {
     return gulp.src(SRC_APP_DIR + PAGE + '/index.html')
-        .pipe(gulp.dest(DIST_APP_DIR + PAGE))
-        .pipe(reload({stream: true}));
+        .pipe(gulp.dest(DIST_APP_DIR + PAGE));
 });
 project_builders.push(HTML_BUILD);
 
 const HTML_WATCH = 'html:watch';
 gulp.task(HTML_WATCH, function () {
-    gulp.watch('src/app/index/index.html', [HTML_BUILD]);
+    gulp.watch('src/app/index/index.html', [HTML_BUILD]).on('change', reload);
 });
 project_watchers.push(HTML_WATCH);
 
