@@ -13,8 +13,7 @@ const DIST_DIR = 'dist';
 const DIST_APP_DIR = DIST_DIR + '/app';
 const DIST_ASSETS = DIST_DIR + '/assets';
 
-const PAGE = '/index';
-const BROWSER_OPEN_FILE = '/app/index/index.html';
+const BROWSER_OPEN_FILE = '/app/html/index.html';
 
 // TODO plumber
 
@@ -24,18 +23,18 @@ var project_watchers = [];
 // >>>>>>>>>>> SASS >>>>>>>>>>>
 const SASS_BUILD = 'sass:build';
 gulp.task(SASS_BUILD, function () {
-    return gulp.src(SRC_APP_DIR + PAGE + '/index.scss')
+    return gulp.src(SRC_APP_DIR + '/css' + '/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(DIST_APP_DIR + PAGE))
+        .pipe(gulp.dest(DIST_APP_DIR + '/css'))
 
 });
 project_builders.push(SASS_BUILD);
 
 const SASS_WATCH = 'sass:watch';
 gulp.task(SASS_WATCH, function () {
-    gulp.watch('src/app/index/**/*.scss', [SASS_BUILD]).on('change', reload);
+    gulp.watch('src/app/css/**/*.scss', [SASS_BUILD]).on('change', reload);
 });
 project_watchers.push(SASS_WATCH);
 
@@ -43,14 +42,14 @@ project_watchers.push(SASS_WATCH);
 // >>>>>>>>>>> HTML >>>>>>>>>>>
 const HTML_BUILD = 'html:build';
 gulp.task(HTML_BUILD, function () {
-    return gulp.src(SRC_APP_DIR + PAGE + '/index.html')
-        .pipe(gulp.dest(DIST_APP_DIR + PAGE));
+    return gulp.src(SRC_APP_DIR + '/html' + '/**.html')
+        .pipe(gulp.dest(DIST_APP_DIR + '/html'));
 });
 project_builders.push(HTML_BUILD);
 
 const HTML_WATCH = 'html:watch';
 gulp.task(HTML_WATCH, function () {
-    gulp.watch('src/app/index/index.html', [HTML_BUILD]).on('change', reload);
+    gulp.watch('src/app/html/**.html', [HTML_BUILD]).on('change', reload);
 });
 project_watchers.push(HTML_WATCH);
 
