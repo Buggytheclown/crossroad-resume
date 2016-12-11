@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Resume</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/assets/css/reset.css"/>
     <link rel="stylesheet" type="text/css" href="/app/css/index.css"/>
+
 
 </head>
 <body>
@@ -25,9 +27,12 @@
 <div class="sections-wrapper">
 
     <section class="about">
-            <div class="row">
-                <div class="about__img"></div>
+        <div class="about__img">
+            <div class="about__info">
+                <img class="about__photo" src="/assets/img/IMG_7194+.jpg">
+                <p class="about__text">Hi, i'm Artsiom Ivanov, full-stack web developer. </p>
             </div>
+        </div>
     </section>
 
     <section class="sections-wrapper__item skills">
@@ -35,55 +40,63 @@
             <h2 class="sections-wrapper__title">Skills</h2>
             <div class="row">
 
-                <div class="col-sm-7 skills__list">
-
-                    <div class="skills__list__front-end">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <p class="skills__list__front-end__title">Front-end:</p>
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Angular2 (from beta20)</p>
-                                <p>React (Redux and some other packages)</p>
-                                <p>JS (ES5, ES6, TS, JQuery)</p>
-                                <p>HTML(template languages, bootstrap, canvas, svg)</p>
-                                <p>CSS (SASS)</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skills__list__back-end">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <p class="skills__list__back-end__title">Back-end:</p>
-                            </div>
-                            <div class="col-xs-9">
-                                <p>Python (Django, Flask)</p>
-                                <p>SQL DBMS (Raw-SQL, ORM)</p>
-                                <p>Nginx</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="skills__list__other">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <p class="skills__list__other__title">Other:</p>
-                            </div>
-                            <div class="col-xs-9">
-                                <p>OOP and functional programming</p>
-                                <p>REST</p>
-                                <p>BEM</p>
-                                <p>Gulp and Webpack</p>
-                                <p>Git</p>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="skills__list">
+                    <p>My interest is being involved in everything from the overall
+                        direction of a project and the actual implementation. Like to implement application's
+                        behavior and business logic not appearance.</p>
+                    <p>In love with Design Patterns. Like to code in OOP(Object-oriented programming) and functional
+                        programming paradigms. </p>
+                    <p>Also work with: RESTful web services, BEM methodology, Nginx, Docker, Gulp and Webpack, Git. </p>
                 </div>
 
-                <div class="col-sm-5 skills__diagram">
-                    <img src="/assets/img/test-grafic.gif" alt="">
+                <h3 class="skills__bar-title">Like-knowledge bar</h3>
+
+                <div class="skillbar clearfix" data-percent="85">
+                    <div class="skillbar-title"><span>Python (Django, Flask)</span></div>
+                    <div class="skillbar-bar"></div>
+                    <div class="skill-bar-percent"></div>
+                </div>
+
+                <div class="skillbar clearfix" data-percent="75">
+                    <div class="skillbar-title"><span>SQL DBMS (Raw-SQL, ORM)</span></div>
+                    <div class="skillbar-bar"></div>
+                    <div class="skill-bar-percent"></div>
+                </div>
+
+                <div class="skillbar clearfix" data-percent="70">
+                    <div class="skillbar-title"><span>Node.js (express)</span></div>
+                    <div class="skillbar-bar"></div>
+                    <div class="skill-bar-percent"></div>
+                </div>
+
+                <div class="skillbar clearfix" data-percent="80">
+                    <div class="skillbar-title"><span>JS (ES5, ES6, TS, JQuery)</span></div>
+                    <div class="skillbar-bar"></div>
+                    <div class="skill-bar-percent"></div>
+                </div>
+
+                <div class="skillbar clearfix" data-percent="70">
+                    <div class="skillbar-title"><span>Angular2</span></div>
+                    <div class="skillbar-bar"></div>
+                    <div class="skill-bar-percent"></div>
+                </div>
+
+                <div class="skillbar clearfix" data-percent="50">
+                    <div class="skillbar-title"><span>React (Redux)</span></div>
+                    <div class="skillbar-bar"></div>
+                    <div class="skill-bar-percent"></div>
+                </div>
+
+                <div class="skillbar clearfix" data-percent="45">
+                    <div class="skillbar-title"><span>HTML(canvas, svg)</span></div>
+                    <div class="skillbar-bar"></div>
+                    <div class="skill-bar-percent"></div>
+                </div>
+
+                <div class="skillbar clearfix" data-percent="45">
+                    <div class="skillbar-title"><span>CSS (SASS)</span></div>
+                    <div class="skillbar-bar"></div>
+                    <div class="skill-bar-percent"></div>
                 </div>
 
             </div>
@@ -105,9 +118,33 @@
         <div class="container">
             <div class="row">
                 <h2 class="sections-wrapper__title">Contacts</h2>
-                <div class="col-sm-4">111111</div>
-                <div class="col-sm-4">222222</div>
-                <div class="col-sm-4">333333</div>
+
+                <div class="col-sm-6 col-sm-offset-3">
+                    <img class="sections-wrapper__photo" src="/assets/img/IMG_7194+.jpg">
+
+                    <div style="display: inline-block">
+                        <div class="sections-wrapper__line">
+                            <img src="/assets/img/icons/user.svg">
+                            <p>Ivanov Artsiom</p>
+                        </div>
+
+                        <div class="sections-wrapper__line">
+                            <img src="/assets/img/icons/phone-call.svg">
+                            <p><a href="tel:+375291647483">+375 29 164-74-83</a></p>
+                        </div>
+
+                        <div class="sections-wrapper__line">
+                            <img src="/assets/img/icons/opened-email-envelope.svg">
+                            <p><a href="mailto:a.m.ivanov375@gmail.com">a.m.ivanov375@gmail.com</a></p>
+                        </div>
+
+                        <div class="sections-wrapper__line">
+                            <img src="/assets/img/icons/github-logo.svg">
+                            <p><a target="_blank" href="https://github.com/Buggytheclown">Buggytheclown</a></p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -115,4 +152,6 @@
 </div>
 
 </body>
+<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+<script type="text/javascript" src="/app/js/index.js"></script>
 </html>

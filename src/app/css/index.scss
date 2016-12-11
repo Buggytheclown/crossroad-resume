@@ -3,9 +3,11 @@
 
 body {
   background: #e7e9ec;
+  font-family: Open Sans, Helvetica, Arial, sans-serif;
 }
 
 .about .about__img {
+  position: relative;
   background-color: rgba(0, 0, 0, 0);
   background-repeat: no-repeat;
   background-image: url(/assets/img/black_keyboard-wallpaper-1280x800.jpg);
@@ -15,8 +17,36 @@ body {
   height: 100vh;
 }
 
+.about {
+  &__info {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), -1px 0 0 rgba(0, 0, 0, 0.03), 1px 0 0 rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.12);
+    background-color: #e7e9ec;
+    color: #999;
+
+    //background: #E9EBF8;
+    //box-shadow: 0 1px 20px rgba(16, 0, 11, .5);
+    top: calc(50% - 125px);
+    left: calc(50% - 300px);
+    position: absolute;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #2b001e;
+  }
+  &__photo {
+    height: 200px;
+    margin: 0 20px;
+    border-radius: 50%;
+    border: 1px solid #2b001e;
+    box-shadow: 0 1px 20px rgba(16, 0, 11, .5);
+  }
+  &__text {
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
 /*TODO remove*/
-section:not(.about):not(.skills) .container {
+section.projects .container {
   min-height: 75vh;
 }
 
@@ -25,6 +55,7 @@ section:not(.about):not(.skills) .container {
     padding: 35px;
     /*border: 1px solid black;*/
     margin-top: 10px;
+    margin-bottom: 10px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), -1px 0 0 rgba(0, 0, 0, 0.03), 1px 0 0 rgba(0, 0, 0, 0.03), 0 1px 0 rgba(0, 0, 0, 0.12);
     background-color: #fff;
     color: #999;
@@ -48,16 +79,118 @@ section:not(.about):not(.skills) .container {
   }
 }
 
-.skills .skills__diagram img {
-  width: 100%;
+.sections-wrapper__line {
+  padding: 5px 0;
+  img {
+    height: 20px;
+  }
+  p {
+    display: inline-block;
+  }
+}
+
+.sections-wrapper__photo {
+  height: 120px;
+  margin: 0 20px;
+  border-radius: 50%;
+  border: 1px solid #2b001e;
+  box-shadow: 0 1px 20px rgba(16, 0, 11, .5);
+
 }
 
 .skills__list__front-end__title, .skills__list__back-end__title, .skills__list__other__title {
   text-align: right;
   font-weight: bold;
+
 }
 
-.skills .skills__list > * {
+.skills {
+  &__list {
+    margin-bottom: 15px;
+    p {
+      text-indent: 1.5em;
+      text-align: justify;
+      line-height: 1.4em;
+    }
+  }
+  &__bar-title {
+    text-align: center;
+    margin: 15px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+
+}
+
+.skillbar {
+  font-family: 'Open Sans', 'sans-serif';
+  position: relative;
+  display: block;
   margin-bottom: 15px;
+  width: 100%;
+  background: #eee;
+  height: 35px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -webkit-transition: 0.4s linear;
+  -moz-transition: 0.4s linear;
+  -ms-transition: 0.4s linear;
+  -o-transition: 0.4s linear;
+  transition: 0.4s linear;
+  -webkit-transition-property: width, background-color;
+  -moz-transition-property: width, background-color;
+  -ms-transition-property: width, background-color;
+  -o-transition-property: width, background-color;
+  transition-property: width, background-color;
 }
 
+.skillbar-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  font-size: 13px;
+  color: #fff;
+  background: #6adcfa;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 4px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.skillbar-title span {
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0 20px;
+  height: 35px;
+  line-height: 35px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.skillbar-bar {
+  height: 35px;
+  width: 0px;
+  background: #6adcfa;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.skill-bar-percent {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  font-size: 11px;
+  height: 35px;
+  line-height: 35px;
+  color: #444;
+  color: rgba(0, 0, 0, 0.4);
+}

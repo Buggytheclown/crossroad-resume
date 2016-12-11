@@ -62,12 +62,34 @@ gulp.task(ASSETS_COPY, function () {
 });
 project_builders.push(ASSETS_COPY);
 
+const ASSETS_WATCH = 'assets:watch';
+gulp.task(ASSETS_WATCH, function () {
+    gulp.watch(SRC_ASSETS + '/**/*', [ASSETS_COPY]).on('change', reload);
+});
+project_watchers.push(ASSETS_WATCH);
+
+
 const CLEAN = 'clean';
 gulp.task(CLEAN, function () {
     return gulp.src(DIST_DIR, {read: false})
         .pipe(rimraf());
 //    TODO del
 });
+
+
+// >>>>>>>>>>> JS >>>>>>>>>>>
+const JS = 'JS';
+gulp.task(JS, function () {
+    return gulp.src(SRC_APP_DIR + '/js' + '/**.js')
+        .pipe(gulp.dest(DIST_APP_DIR + '/js'))
+});
+project_builders.push(JS);
+
+const JS_WATCH = 'JS:watch';
+gulp.task(JS_WATCH, function () {
+    gulp.watch('src/app/js/**.js', [JS]).on('change', reload);
+});
+project_watchers.push(JS_WATCH);
 
 // >>>>>>>>>>> BULD >>>>>>>>>>>
 const BUILD = 'build';
