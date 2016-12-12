@@ -15,27 +15,38 @@
 <nav class="b-header">
     <div class="b-header__item">
         <ul class="b-navigation">
-            <li class="b-navigation__item" data-active="true"><a href="#"><span>About</span></a></li>
-            <li class="b-navigation__item"><a href="#">Skills</a></li>
-            <li class="b-navigation__item"><a href="#">Projects</a></li>
-            <li class="b-navigation__item b-navigation__item--last"><a href="#">Contacts</a></li>
+            <li class="b-navigation__item" data-active="true" data-scrollto="#about">
+                <a href="#"><span>About</span></a>
+            </li>
+            <li class="b-navigation__item" data-active="false" data-scrollto="#skills">
+                <a href="#">Skills</a>
+            </li>
+            <li class="b-navigation__item" data-active="false" data-scrollto="#projects">
+                <a href="#">Projects</a>
+            </li>
+            <li class="b-navigation__item b-navigation__item--last" data-active="false" data-scrollto="#contacts">
+                <a href="#">Contacts</a>
+            </li>
         </ul>
+        <div class="b-navigation-mobile">
+            <img class="b-navigation-mobile__menu-button" src="/assets/img/icons/menu-button.svg">
+        </div>
     </div>
 </nav>
 
 
 <div class="sections-wrapper">
 
-    <section class="about">
-        <div class="about__img">
-            <div class="about__info">
-                <img class="about__photo" src="/assets/img/IMG_7194+.jpg">
-                <p class="about__text">Hi, i'm Artsiom Ivanov, full-stack web developer. </p>
+    <section id="about" class="about">
+        <div class="about__background">
+            <div class="about-info">
+                <img class="about-info__photo" src="/assets/img/IMG_7194+.jpg">
+                <p class="about-info__text">Hi, i'm Artsiom Ivanov, full-stack web developer. </p>
             </div>
         </div>
     </section>
 
-    <section class="sections-wrapper__item skills">
+    <section id="skills" class="sections-wrapper__item skills">
         <div class="container">
             <h2 class="sections-wrapper__title">Skills</h2>
             <div class="row">
@@ -51,59 +62,59 @@
 
                 <h3 class="skills__bar-title">Like-knowledge bar</h3>
 
-                <div class="skillbar clearfix" data-percent="85">
-                    <div class="skillbar-title"><span>Python (Django, Flask)</span></div>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent"></div>
+                <div class="skillbar" data-percent="85">
+                    <div class="skillbar__title"><span>Python (Django, Flask)</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
                 </div>
 
-                <div class="skillbar clearfix" data-percent="75">
-                    <div class="skillbar-title"><span>SQL DBMS (Raw-SQL, ORM)</span></div>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent"></div>
+                <div class="skillbar" data-percent="75">
+                    <div class="skillbar__title"><span>SQL DBMS (Raw-SQL, ORM)</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
                 </div>
 
-                <div class="skillbar clearfix" data-percent="70">
-                    <div class="skillbar-title"><span>Node.js (express)</span></div>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent"></div>
+                <div class="skillbar" data-percent="70">
+                    <div class="skillbar__title"><span>Node.js (express)</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
                 </div>
 
-                <div class="skillbar clearfix" data-percent="80">
-                    <div class="skillbar-title"><span>JS (ES5, ES6, TS, JQuery)</span></div>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent"></div>
+                <div class="skillbar" data-percent="80">
+                    <div class="skillbar__title"><span>JS (ES5, ES6, TS, JQuery)</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
                 </div>
 
-                <div class="skillbar clearfix" data-percent="70">
-                    <div class="skillbar-title"><span>Angular2</span></div>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent"></div>
+                <div class="skillbar" data-percent="70">
+                    <div class="skillbar__title"><span>Angular2</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
                 </div>
 
-                <div class="skillbar clearfix" data-percent="50">
-                    <div class="skillbar-title"><span>React (Redux)</span></div>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent"></div>
+                <div class="skillbar" data-percent="50">
+                    <div class="skillbar__title"><span>React (Redux)</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
                 </div>
 
-                <div class="skillbar clearfix" data-percent="45">
-                    <div class="skillbar-title"><span>HTML(canvas, svg)</span></div>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent"></div>
+                <div class="skillbar" data-percent="45">
+                    <div class="skillbar__title"><span>HTML(canvas, svg)</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
                 </div>
 
-                <div class="skillbar clearfix" data-percent="45">
-                    <div class="skillbar-title"><span>CSS (SASS)</span></div>
-                    <div class="skillbar-bar"></div>
-                    <div class="skill-bar-percent"></div>
+                <div class="skillbar" data-percent="45">
+                    <div class="skillbar__title"><span>CSS (SASS)</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section class="sections-wrapper__item projects">
+    <section id="projects" class="sections-wrapper__item projects">
         <div class="container">
             <div class="row">
                 <h2 class="sections-wrapper__title">Projects</h2>
@@ -114,7 +125,7 @@
         </div>
     </section>
 
-    <section class="sections-wrapper__item contacts">
+    <section id="contacts" class="sections-wrapper__item contacts">
         <div class="container">
             <div class="row">
                 <h2 class="sections-wrapper__title">Contacts</h2>

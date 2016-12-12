@@ -2,7 +2,12 @@
   position: fixed;
   width: 100%;
   background: #fff;
-  padding: 20px 0;
+  @include respond-to('sm') {
+    padding: 20px 0;
+  }
+  @include respond-to('sm_max') {
+    padding: 15px 0;
+  }
   z-index: 999;
   opacity: 0.9;
   box-shadow: rgba(0, 0, 0, 0.298039) 0px 0px 3px;
@@ -10,9 +15,11 @@
 
 .b-navigation {
   text-align: center;
+  @include respond-to('sm_max') {
+    display: none !important;
+  }
   &__item {
     display: inline-block;
-
     font-weight: 700;
     color: $link-color__primary;
     background: url(/assets/img/nav-bg.png) no-repeat scroll right center;
@@ -30,12 +37,25 @@
       margin: 0 25px;
       color: inherit;
       padding-bottom: 2px;
+      transition: color 0.3s linear;
     }
 
     & a:hover {
-      color: $link-color__primary;
-      border-bottom: 1px solid $link-color__primary;
+      color: $link-color__secondary;
+      border-bottom: 1px solid $link-color__secondary;
       text-decoration: none;
     }
+  }
+}
+
+.b-navigation-mobile {
+  @include respond-to('sm') {
+    display: none !important;
+  }
+  &__menu-button {
+    height: 26px;
+    float: right;
+    margin-right: 20px;
+    cursor: pointer;
   }
 }
