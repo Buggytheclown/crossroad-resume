@@ -20,6 +20,7 @@
   "devDependencies": {
     "browser-sync": "^2.18.2",
     "gulp": "^3.9.1",
+    "gulp-inject-svg": "^0.1.9",
     "gulp-rimraf": "^0.2.1",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.9.1"

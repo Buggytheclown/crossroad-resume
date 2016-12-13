@@ -5,6 +5,7 @@
         // animateSkills();
         addHeaderLinkEvents();
         // addSectionChangelisteners();
+        watchForHeader();
 
     });
 
@@ -64,7 +65,7 @@
             var targetEl = $this.attr('data-scrollto');
 
             $('html, body').animate({
-                scrollTop: $(targetEl).offset().top - 66
+                scrollTop: $(targetEl).offset().top - 70
             }, 1000);
         })
     }
@@ -90,5 +91,21 @@
     //
     //     })
     // }
+
+    function watchForHeader() {
+        var target = $('nav.b-header');
+        var targetIsEmbedded = true;
+        $(window).on('scroll', function () {
+            var scrollTop = $(this).scrollTop();
+            if (scrollTop > 0 && targetIsEmbedded) {
+                targetIsEmbedded = false;
+                target.removeClass('b-header--embedded').addClass('b-header--static');
+            } else if (scrollTop === 0 && !targetIsEmbedded) {
+                targetIsEmbedded = true;
+                target.removeClass('b-header--static').addClass('b-header--embedded');
+            }
+
+        })
+    }
 
 })(jQuery);

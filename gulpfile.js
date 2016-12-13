@@ -1,9 +1,10 @@
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var rimraf = require('gulp-rimraf');
-var browserSync = require('browser-sync');
-var sourcemaps = require('gulp-sourcemaps');
-var reload = browserSync.reload;
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const rimraf = require('gulp-rimraf');
+const browserSync = require('browser-sync');
+const sourcemaps = require('gulp-sourcemaps');
+const reload = browserSync.reload;
+const injectSvg = require('gulp-inject-svg');
 
 const SRC_DIR = 'src';
 const SRC_APP_DIR = SRC_DIR + '/app';
@@ -43,6 +44,7 @@ project_watchers.push(SASS_WATCH);
 const HTML_BUILD = 'html:build';
 gulp.task(HTML_BUILD, function () {
     return gulp.src(SRC_APP_DIR + '/html' + '/**.html')
+        .pipe(injectSvg())
         .pipe(gulp.dest(DIST_APP_DIR + '/html'));
 });
 project_builders.push(HTML_BUILD);
