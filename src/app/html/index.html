@@ -34,14 +34,25 @@
     </div>
 </nav>
 
-
 <div class="sections-wrapper">
 
     <section id="about" class="about">
         <div class="about__background">
             <div class="about-info">
                 <img class="about-info__photo" src="/assets/img/IMG_7194+.jpg">
-                <p class="about-info__text">Hi, i'm Artsiom Ivanov, full-stack web developer. </p>
+                <div class="about-info__text">
+                    <p>
+                        Hi, i'm Artsiom Ivanov, full-stack web developer. My interest is being
+                        involved in everything from the overall
+                        direction of a project and the actual implementation.
+                    </p>
+                    <p>
+                        Like to implement application's
+                        behavior and business logic not appearance.
+                    </p>
+
+                </div>
+
             </div>
         </div>
     </section>
@@ -52,18 +63,25 @@
             <div class="row">
 
                 <div class="skills__list">
-                    <p>My interest is being involved in everything from the overall
-                        direction of a project and the actual implementation. Like to implement application's
-                        behavior and business logic not appearance.</p>
-                    <p>In love with Design Patterns. Like to code in OOP(Object-oriented programming) and functional
-                        programming paradigms. </p>
-                    <p>Also work with: RESTful web services, BEM methodology, Nginx, Docker, Gulp and Webpack, Git. </p>
+                    <p>
+                        In love with Design Patterns. Like to code in OOP(Object-oriented programming) and functional
+                        programming paradigms.
+                    </p>
+                    <p>
+                        Also work with: RESTful web services, BEM methodology, Nginx, virtual environments(Docker, Vagrant), project builders(Gulp, Webpack), VCS(Git).
+                    </p>
                 </div>
 
-                <h3 class="skills__bar-title">Like-knowledge bar</h3>
+                <h3 class="skills__bar-title">Interest-knowledge bars</h3>
 
-                <div class="skillbar" data-percent="85">
-                    <div class="skillbar__title"><span>Python (Django, Flask)</span></div>
+                <div class="skillbar" data-percent="90">
+                    <div class="skillbar__title"><span>Python</span></div>
+                    <div class="skillbar__bar"></div>
+                    <div class="skillbar__percent"></div>
+                </div>
+
+                <div class="skillbar" data-percent="80">
+                    <div class="skillbar__title"><span>Django, Flask</span></div>
                     <div class="skillbar__bar"></div>
                     <div class="skillbar__percent"></div>
                 </div>
@@ -92,7 +110,7 @@
                     <div class="skillbar__percent"></div>
                 </div>
 
-                <div class="skillbar" data-percent="50">
+                <div class="skillbar" data-percent="60">
                     <div class="skillbar__title"><span>React (Redux)</span></div>
                     <div class="skillbar__bar"></div>
                     <div class="skillbar__percent"></div>
@@ -118,9 +136,20 @@
         <div class="container">
             <div class="row">
                 <h2 class="sections-wrapper__title">Projects</h2>
-                <div class="col-sm-4">111111</div>
-                <div class="col-sm-4">222222</div>
-                <div class="col-sm-4">333333</div>
+
+                <div class="projects-container">
+
+                    <div class="projects-container__item row">
+                        <div class="col-sm-4">
+                            <img style="height: 100px" src="/assets/img/projects/cfmws/cfmws-2.png">
+                        </div>
+                        <div class="col-sm-8">
+                            content
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </section>

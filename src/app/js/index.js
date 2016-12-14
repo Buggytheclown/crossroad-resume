@@ -4,7 +4,7 @@
         prepareSkills();
         // animateSkills();
         addHeaderLinkEvents();
-        // addSectionChangelisteners();
+        addSectionChangelisteners();
         watchForHeader();
 
     });
@@ -50,19 +50,17 @@
     //     });
     // }
 
-    function uncheckAllHeaderLink() {
+    function toggleHeaderTo(exept) {
         $('.b-navigation__item').each(function () {
             $(this).attr('data-active', 'false');
-        })
+        });
+        exept.attr('data-active', 'true');
     }
 
     function addHeaderLinkEvents() {
         $('.b-navigation__item').on('click', function (e) {
             e.preventDefault();
-            var $this = $(this);
-            uncheckAllHeaderLink();
-            $this.attr('data-active', 'true');
-            var targetEl = $this.attr('data-scrollto');
+            var targetEl = $(this).attr('data-scrollto');
 
             $('html, body').animate({
                 scrollTop: $(targetEl).offset().top - 70
@@ -70,27 +68,35 @@
         })
     }
 
-    // function addSectionChangelisteners() {
-    //     function getElementsWithPositions() {
-    //         return $('.b-navigation__item').map(function (_, el) {
-    //             var target = $(el).attr('data-scrollto');
-    //             return {element: $(target), position: $(target).offset().top};
-    //         });
-    //     }
-    //
-    //     var elementsWithPositions = getElementsWithPositions().sort(function (a, b) {
-    //         return b.position - a.position
-    //     });
-    //     var viewporHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    //
-    //     console.info(elementsWithPositions);
-    //     $(window).on('scroll', function () {
-    //
-    //
-    //         $(this).scrollTop()
-    //
-    //     })
-    // }
+    function addSectionChangelisteners() {
+        function getViewporHeight() {
+            return Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        }
+
+        function getElementsWithPositions() {
+            return $('.b-navigation__item').map(function (_, el) {
+                var target = $(el).attr('data-scrollto');
+                return {element: $(el), position: $(target).offset().top};
+            });
+        }
+
+        function getSectionInView() {
+            var elementInView;
+            var elementsWithPositions = getElementsWithPositions();
+            for (var i = elementsWithPositions.length - 1; i >= 0; i--) {
+                var comparedElement = elementsWithPositions[i];
+                if (comparedElement.position <= $(this).scrollTop() + getViewporHeight() / 2) {
+                    elementInView = comparedElement;
+                    break;
+                }
+            }
+            return elementInView.element;
+        }
+
+        $(window).on('scroll', function () {
+            toggleHeaderTo(getSectionInView());
+        })
+    }
 
     function watchForHeader() {
         var target = $('nav.b-header');

@@ -70,8 +70,7 @@
     }
 
     & a:hover {
-      color: $link-color__secondary;
-      border-bottom: 1px solid $link-color__secondary;
+      border-bottom: 1px solid $link-color__primary;
       text-decoration: none;
     }
   }
