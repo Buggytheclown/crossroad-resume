@@ -1,0 +1,9 @@
+.project-block {
+  &__preview {
+    text-align: center;
+    margin-bottom: 10px;
+    & img {
+      height: 100px;
+    }
+  }
+}

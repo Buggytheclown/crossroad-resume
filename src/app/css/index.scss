@@ -3,13 +3,14 @@
 @import "component/header";
 @import "component/about";
 @import "component/skillbar";
+@import "component/projects";
 
 body {
   background: #e7e9ec;
   font-family: Open Sans, Helvetica, Arial, sans-serif;
 }
 
-a:focus {
+a:focus, a:hover{
   text-decoration: none !important;
 }
 

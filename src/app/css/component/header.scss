@@ -70,6 +70,12 @@
         padding-bottom: 2px;
         transition: color 0.3s ease-in;
       }
+
+      & a:hover {
+        border-bottom: 1px solid #fff;
+        text-decoration: none;
+      }
+
     }
   }
 

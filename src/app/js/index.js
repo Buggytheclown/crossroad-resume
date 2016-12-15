@@ -1,4 +1,5 @@
 (function ($) {
+    // USE FEATHERBOX
 
     $(function () {
         prepareSkills();
