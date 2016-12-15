@@ -28,7 +28,7 @@
       padding: 35px 0;
     }
     @include respond-to('sm_max') {
-      padding: 32px 0;
+      padding: 17px 0;
     }
 
     & .b-navigation-mobile__menu-button {
@@ -43,35 +43,64 @@
 }
 
 .b-navigation {
-  text-align: center;
+
   @include respond-to('sm_max') {
-    display: none !important;
+    &--hidemobile {
+      right: -200px;
+      transition: all 0.5s ease-in;
+    }
+    transition: all 0.5s ease-out;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: rgb(51, 51, 51);
+    border-radius: .25em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .6);
+    line-height: 3em;
+    width: 196px;
+
+    &__item {
+      &[data-active=true] a {
+        color: $link-color__secondary;
+        border-bottom: 1px solid $link-color__secondary;
+      }
+
+      & a {
+        color: #fff;
+        padding-bottom: 2px;
+        transition: color 0.3s ease-in;
+      }
+    }
   }
-  &__item {
-    display: inline-block;
-    font-weight: 700;
-    color: $link-color__primary;
-    background: url(/assets/img/nav-bg.png) no-repeat scroll right center;
 
-    &--last {
-      background: none;
-    }
+  @include respond-to('sm') {
+    text-align: center;
+    &__item {
+      display: inline-block;
+      font-weight: 700;
+      color: $link-color__primary;
+      background: url(/assets/img/nav-bg.png) no-repeat scroll right center;
 
-    &[data-active=true] a {
-      color: $link-color__secondary;
-      border-bottom: 1px solid $link-color__secondary;
-    }
+      &--last {
+        background: none;
+      }
 
-    & a {
-      margin: 0 25px;
-      color: inherit;
-      padding-bottom: 2px;
-      transition: color 0.3s ease-in;
-    }
+      &[data-active=true] a {
+        color: $link-color__secondary;
+        border-bottom: 1px solid $link-color__secondary;
+      }
 
-    & a:hover {
-      border-bottom: 1px solid $link-color__primary;
-      text-decoration: none;
+      & a {
+        margin: 0 25px;
+        color: inherit;
+        padding-bottom: 2px;
+        transition: color 0.3s ease-in;
+      }
+
+      & a:hover {
+        border-bottom: 1px solid $link-color__primary;
+        text-decoration: none;
+      }
     }
   }
 }

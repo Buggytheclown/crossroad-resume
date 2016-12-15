@@ -110,7 +110,8 @@ gulp.task('serve', [BUILD, WATCH], function () {
             baseDir: DIST_DIR
         },
         ui: false,
-        startPath: BROWSER_OPEN_FILE
+        startPath: BROWSER_OPEN_FILE,
+        notify: false
 
     });
 });

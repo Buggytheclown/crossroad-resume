@@ -58,14 +58,38 @@
     }
 
     function addHeaderLinkEvents() {
-        $('.b-navigation__item').on('click', function (e) {
-            e.preventDefault();
-            var targetEl = $(this).attr('data-scrollto');
+        var HIDE_MOBILE_MENU_CLS = 'b-navigation--hidemobile';
 
-            $('html, body').animate({
-                scrollTop: $(targetEl).offset().top - 70
-            }, 1000);
-        })
+        listenForToggleMenu();
+        clickOutside();
+        listenForElementClick();
+
+        function clickOutside() {
+            $(document).click(function (e) {
+                var target = e.target;
+                if ($(target).parents('.b-navigation-mobile').length === 0 && !$(target).is('.b-navigation')) {
+                    $('.b-navigation').addClass(HIDE_MOBILE_MENU_CLS);
+                }
+            });
+        }
+
+        function listenForToggleMenu() {
+            $('.b-navigation-mobile__menu-button').on('click', function () {
+                $('.b-navigation').toggleClass(HIDE_MOBILE_MENU_CLS)
+            });
+        }
+
+        function listenForElementClick() {
+            $('.b-navigation__item').on('click', function (e) {
+                e.preventDefault();
+                $('.b-navigation').addClass(HIDE_MOBILE_MENU_CLS);
+                var targetEl = $(this).attr('data-scrollto');
+
+                $('html, body').animate({
+                    scrollTop: $(targetEl).offset().top - 70
+                }, 1000);
+            })
+        }
     }
 
     function addSectionChangelisteners() {
