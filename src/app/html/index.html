@@ -74,59 +74,13 @@
 
                 <h3 class="skills__bar-title">Interest-knowledge bars</h3>
 
-                <div class="skillbar" data-percent="90">
-                    <div class="skillbar__title"><span>Python</span></div>
+                {% for skill in skills %}
+                <div class="skillbar" data-percent="{{skill.percent}}">
+                    <div class="skillbar__title"><span>{{skill.name}}</span></div>
                     <div class="skillbar__bar"></div>
                     <div class="skillbar__percent"></div>
                 </div>
-
-                <div class="skillbar" data-percent="80">
-                    <div class="skillbar__title"><span>Django, Flask</span></div>
-                    <div class="skillbar__bar"></div>
-                    <div class="skillbar__percent"></div>
-                </div>
-
-                <div class="skillbar" data-percent="75">
-                    <div class="skillbar__title"><span>SQL DBMS (Raw-SQL, ORM)</span></div>
-                    <div class="skillbar__bar"></div>
-                    <div class="skillbar__percent"></div>
-                </div>
-
-                <div class="skillbar" data-percent="70">
-                    <div class="skillbar__title"><span>Node.js (express)</span></div>
-                    <div class="skillbar__bar"></div>
-                    <div class="skillbar__percent"></div>
-                </div>
-
-                <div class="skillbar" data-percent="80">
-                    <div class="skillbar__title"><span>JS (ES5, ES6, TS, JQuery)</span></div>
-                    <div class="skillbar__bar"></div>
-                    <div class="skillbar__percent"></div>
-                </div>
-
-                <div class="skillbar" data-percent="70">
-                    <div class="skillbar__title"><span>Angular2</span></div>
-                    <div class="skillbar__bar"></div>
-                    <div class="skillbar__percent"></div>
-                </div>
-
-                <div class="skillbar" data-percent="60">
-                    <div class="skillbar__title"><span>React (Redux)</span></div>
-                    <div class="skillbar__bar"></div>
-                    <div class="skillbar__percent"></div>
-                </div>
-
-                <div class="skillbar" data-percent="45">
-                    <div class="skillbar__title"><span>HTML(canvas, svg)</span></div>
-                    <div class="skillbar__bar"></div>
-                    <div class="skillbar__percent"></div>
-                </div>
-
-                <div class="skillbar" data-percent="45">
-                    <div class="skillbar__title"><span>CSS (SASS)</span></div>
-                    <div class="skillbar__bar"></div>
-                    <div class="skillbar__percent"></div>
-                </div>
+                {% endfor %}
 
             </div>
         </div>
@@ -141,34 +95,20 @@
 
                     <div class="projects-container__item row">
 
+                        {% for project in projects %}
                         <div class="project-block">
                             <div class="project-block__preview col-sm-4">
-                                <img src="/assets/img/projects/cfmws/cfmws-2.png">
+                                <img src={{project.img.preview}}>
                             </div>
-
                             <div class="project-block__description col-sm-8">
-                                <p>
-                                    <b>Name:</b> CF Appreciation
-                                </p>
-                                <p>
-                                    <b>Requester:</b> Canadian Forces Morale and Welfare Services
-                                </p>
-                                <p>
-                                    <b>Technologies stack:</b> Angular2(TypeScript), Gulp, Google Maps JavaScript API,
-                                    Docker
-                                </p>
-                                <p>
-                                    <b>Since:</b> 07.2016 <b>Till:</b> Now
-                                </p>
-                                <p>
-                                    <b>About:</b> Online catalog of discounts. Multi-Languages SPA communicating throw
-                                    RESTfull API with client's server.
-                                </p>
+                                {% for name, description in project.about %}
+                                <p><b>{{name}}:</b> {{description}}</p>
+                                {% endfor %}
                             </div>
                         </div>
+                        {% endfor %}
 
                     </div>
-
                 </div>
 
             </div>

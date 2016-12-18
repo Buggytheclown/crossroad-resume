@@ -1,0 +1,54 @@
+{
+  "skills": [
+    {
+      "percent": 90,
+      "name": "Python"
+    },
+    {
+      "percent": 80,
+      "name": "Django, Flask"
+    },
+    {
+      "percent": 75,
+      "name": "SQL DBMS (Raw-SQ"
+    },
+    {
+      "percent": 70,
+      "name": "Node.js (express)"
+    },
+    {
+      "percent": 80,
+      "name": "JS (ES5, ES6, TS, JQuery)"
+    },
+    {
+      "percent": 70,
+      "name": "Angular2"
+    },
+    {
+      "percent": 60,
+      "name": "React (Redux)"
+    },
+    {
+      "percent": 45,
+      "name": "HTML(canvas, svg)"
+    },
+    {
+      "percent": 45,
+      "name": "CSS (SASS)"
+    }
+  ],
+  "projects": [
+    {
+      "about": {
+        "Name": "CF Appreciation",
+        "Requester": "Canadian Forces Morale and Welfare Services",
+        "Technologies stack": "Angular2(TypeScript), Gulp, Google Maps JavaScript API, Docker",
+        "Timeline": "07.2016 - Now",
+        "About": "Online catalog of discounts. Multi-Languages SPA communicating throw RESTfull API with client's server."
+      },
+      "img": {
+        "preview": "/assets/img/projects/cfmws/cfmws-2.png"
+      }
+    }
+  ]
+}

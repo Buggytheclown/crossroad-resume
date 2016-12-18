@@ -5,6 +5,10 @@ const browserSync = require('browser-sync');
 const sourcemaps = require('gulp-sourcemaps');
 const reload = browserSync.reload;
 const injectSvg = require('gulp-inject-svg');
+const nunjucks = require('gulp-nunjucks');
+const data = require('gulp-data');
+const fs = require('fs');
+const path = require('path');
 
 const SRC_DIR = 'src';
 const SRC_APP_DIR = SRC_DIR + '/app';
@@ -44,6 +48,15 @@ project_watchers.push(SASS_WATCH);
 const HTML_BUILD = 'html:build';
 gulp.task(HTML_BUILD, function () {
     return gulp.src(SRC_APP_DIR + '/html' + '/**.html')
+        .pipe(data(function (file) {
+            const DATA_FILE = './src/app/data/' + path.basename(file.path, '.html') + '.json';
+            if (fs.existsSync(DATA_FILE)) {
+                return JSON.parse(fs.readFileSync(DATA_FILE));
+            } else {
+                console.warn('!!__NO DATA FOR HTML: ', DATA_FILE);
+            }
+        }))
+        .pipe(nunjucks.compile())
         .pipe(injectSvg())
         .pipe(gulp.dest(DIST_APP_DIR + '/html'));
 });
