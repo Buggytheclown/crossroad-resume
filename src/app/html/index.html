@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Resume</title>
+    <link rel="icon" href="/assets/img/favicon.ico">
+
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="/app/css/index.css"/>
-    <link rel="icon" href="/assets/img/favicon.ico">
+
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/fancybox.css"  media="screen" />
+    <script type="text/javascript" src="/assets/js/fancybox.js"></script>
+    <link rel="stylesheet" href="/assets/css/fancybox-thumbs.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="/assets/js/fancybox-thumbs.js"></script>
+
+    <script type="text/javascript" src="/app/js/index.js"></script>
 
 </head>
 <body>
@@ -98,7 +108,9 @@
                         {% for project in projects %}
                         <div class="project-block">
                             <div class="project-block__preview col-sm-4">
-                                <img src={{project.img.preview}}>
+                                <!--<img src={{project.img.preview}}>-->
+                                <a class="fancybox" rel="group" href={{project.img.preview}}><img
+                                        src={{project.img.preview}} alt=""/></a>
                             </div>
                             <div class="project-block__description col-sm-8">
                                 {% for name, description in project.about %}
@@ -153,6 +165,4 @@
 </div>
 
 </body>
-<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="/app/js/index.js"></script>
 </html>

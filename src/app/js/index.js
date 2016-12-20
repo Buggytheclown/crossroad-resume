@@ -7,6 +7,9 @@
         addHeaderLinkEvents();
         addSectionChangelisteners();
         watchForHeader();
+        $(document).ready(function () {
+            $(".fancybox").fancybox();
+        });
 
     });
 
