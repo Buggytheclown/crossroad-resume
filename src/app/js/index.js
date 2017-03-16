@@ -8,7 +8,17 @@
         addSectionChangelisteners();
         watchForHeader();
         $(document).ready(function () {
-            $(".fancybox").fancybox();
+            $(".grouped_elements").fancybox({
+                helpers: {
+                    // title: {
+                    //     type: 'outside'
+                    // },
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
+                }
+            });
         });
 
     });

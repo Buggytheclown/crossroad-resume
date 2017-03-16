@@ -12,9 +12,9 @@
 
     <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/fancybox.css"  media="screen" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/fancybox.css" media="screen"/>
     <script type="text/javascript" src="/assets/js/fancybox.js"></script>
-    <link rel="stylesheet" href="/assets/css/fancybox-thumbs.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/assets/css/fancybox-thumbs.css" type="text/css" media="screen"/>
     <script type="text/javascript" src="/assets/js/fancybox-thumbs.js"></script>
 
     <script type="text/javascript" src="/app/js/index.js"></script>
@@ -108,14 +108,20 @@
                         {% for project in projects %}
                         <div class="project-block">
                             <div class="project-block__preview col-sm-4">
-                                <!--<img src={{project.img.preview}}>-->
-                                <a class="fancybox" rel="group" href={{project.img.preview}}><img
-                                        src={{project.img.preview}} alt=""/></a>
+                                <a class="grouped_elements" rel="{{project.about.Name}}" href="{{project.imgs.url_root + project.imgs.preview}}"><img
+                                        src="{{project.imgs.url_root + project.imgs.preview}}" alt=""/></a>
+
+                                {% for img in project.imgs.gallery %}
+                                <a class="grouped_elements" rel="{{project.about.Name}}" href="{{project.imgs.url_root + img.hd}}"><img src="{{project.imgs.url_root + img.preview}}" alt=""/></a>
+                                {% endfor %}
+
                             </div>
                             <div class="project-block__description col-sm-8">
+
                                 {% for name, description in project.about %}
                                 <p><b>{{name}}:</b> {{description}}</p>
                                 {% endfor %}
+
                             </div>
                         </div>
                         {% endfor %}

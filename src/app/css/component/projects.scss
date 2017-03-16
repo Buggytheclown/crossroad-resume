@@ -4,6 +4,10 @@
     margin-bottom: 10px;
     & img {
       height: 100px;
+      box-shadow: 0 1px 20px rgba(16, 0, 11, 0.5);
+    }
+    & a:not(:first-child) {
+      display: none;
     }
   }
 }
