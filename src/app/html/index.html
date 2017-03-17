@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>Resume</title>
+    <link rel="icon" href="/assets/img/favicon.ico">
+
     <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="/app/css/index.css"/>
-    <link rel="icon" href="/assets/img/favicon.ico">
+
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/fancybox.css" media="screen"/>
+    <script type="text/javascript" src="/assets/js/fancybox.js"></script>
+    <link rel="stylesheet" href="/assets/css/fancybox-thumbs.css" type="text/css" media="screen"/>
+    <script type="text/javascript" src="/assets/js/fancybox-thumbs.js"></script>
+
+    <script type="text/javascript" src="/app/js/index.js"></script>
 
 </head>
 <body>
@@ -96,14 +106,22 @@
                     <div class="projects-container__item row">
 
                         {% for project in projects %}
-                        <div class="project-block">
+                        <div class="project-block clearfix">
                             <div class="project-block__preview col-sm-4">
-                                <img src={{project.img.preview}}>
+                                <a class="grouped_elements" rel="{{project.about.Name}}" href="{{project.imgs.url_root + project.imgs.preview}}"><img
+                                        src="{{project.imgs.url_root + project.imgs.preview}}" alt=""/></a>
+
+                                {% for img in project.imgs.gallery %}
+                                <a class="grouped_elements" rel="{{project.about.Name}}" href="{{project.imgs.url_root + img.hd}}"><img src="{{project.imgs.url_root + img.preview}}" alt=""/></a>
+                                {% endfor %}
+
                             </div>
                             <div class="project-block__description col-sm-8">
+
                                 {% for name, description in project.about %}
                                 <p><b>{{name}}:</b> {{description}}</p>
                                 {% endfor %}
+
                             </div>
                         </div>
                         {% endfor %}
@@ -153,6 +171,4 @@
 </div>
 
 </body>
-<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="/app/js/index.js"></script>
 </html>

@@ -1,12 +1,23 @@
 (function ($) {
-    // USE FEATHERBOX
-
     $(function () {
         prepareSkills();
         // animateSkills();
         addHeaderLinkEvents();
         addSectionChangelisteners();
         watchForHeader();
+        $(document).ready(function () {
+            $(".grouped_elements").fancybox({
+                helpers: {
+                    // title: {
+                    //     type: 'outside'
+                    // },
+                    thumbs: {
+                        width: 50,
+                        height: 50
+                    }
+                }
+            });
+        });
 
     });
 
